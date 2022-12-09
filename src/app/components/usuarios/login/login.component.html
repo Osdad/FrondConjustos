@@ -1,0 +1,17 @@
+<main class="form-signin w-100 m-auto">
+    <form #formLogin="ngForm" class="login-container" (ngSubmit)="onLogin()">
+        <br><br><br>
+        <h1 class="h3 mb-3 fw-normal">{{title}}</h1>
+        <div class="form-floating">
+            <input type="text" name="username" #username="ngModel" [(ngModel)]="usuario.username" class="form-control" id="floatingInput" placeholder="Username" ngModel required>
+            <label for="floatingInput">Username</label>
+            <span *ngIf="!username.valid && username.touched">El Nombre de Usuario Es Obligatorio</span>
+        </div>
+        <div class="form-floating">
+            <input type="password" name="password" #password="ngModel" [(ngModel)]="usuario.password" class="form-control" id="floatingPassword" placeholder="Password" ngModel required>
+            <label for="floatingPassword">Password</label>
+            <span *ngIf="!password.valid && password.touched">La Contraseña Es Obligatoria</span>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+    </form>
+</main>
