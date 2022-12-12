@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin():void{
-     if(this.usuario.username== " "|| this.usuario.password==""){
+     if(this.usuario.username== ""|| this.usuario.password==""){
        Swal.fire("Error!","No Digito los Datos Completos", 'error');
      }else{
       this._usuarioService.login(this.usuario.username, this.usuario.password).subscribe({
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['home']);
           Swal.fire("Login!",'Hola:'+response.nombreUsuario + ',ha iniciado Correctamente','success');
         },error:(error)=>{
-          if(error.status==401){
+          if(error.status==403){
             Swal.fire("Error Login!",'Datos Digitados Son Incorrectos','error');
           }
         }
